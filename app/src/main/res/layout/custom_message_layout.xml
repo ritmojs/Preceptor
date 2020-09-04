@@ -26,9 +26,21 @@
         android:padding="10dp"
         android:textSize="14sp"
         android:textStyle="bold"
+
         android:textColor="@android:color/black"
         android:layout_toRightOf="@+id/message_profile_image" />
-
+    <TextView
+        android:id="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:background="@drawable/username"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:layout_marginLeft="3dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@+id/receiver_message_text" />
 
     <ImageView
         android:id="@+id/message_sender_image_view"
@@ -62,7 +74,7 @@
         android:textSize="14sp"
         android:padding="10dp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         android:layout_alignParentRight="true" />
 
 </RelativeLayout>

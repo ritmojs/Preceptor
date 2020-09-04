@@ -7,10 +7,20 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".Chat">
+<TextView
+    android:id="@+id/ChatQuestion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Question"
+    android:padding="10dp"
+    android:textSize="18dp"
+  android:background="@drawable/question_chat"
+    android:textColor="@color/white"
 
-
+/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/ChatQuestion"
         android:id="@+id/private_messages_list_of_users"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

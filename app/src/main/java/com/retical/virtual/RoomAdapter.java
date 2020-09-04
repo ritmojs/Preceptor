@@ -19,7 +19,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder>  {
     Context context;
     int position;
     ItemClickListener itemClickListener;
-    ArrayList<String> items=new ArrayList<>();
+    static ArrayList<String> items=new ArrayList<>();
     static ArrayList<String> urls=new ArrayList<>();
 
 

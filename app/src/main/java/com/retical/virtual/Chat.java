@@ -40,9 +40,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Chat extends AppCompatActivity {
 
-    private String messageRoomID, messageSenderID;
+    private String messageRoomID, messageSenderID,ChatQuestion;
 
-    private TextView userName, userLastSeen;
+    private TextView Question;
     private CircleImageView userImage;
 
     private Toolbar ChatToolBar;
@@ -71,8 +71,9 @@ public class Chat extends AppCompatActivity {
         Intent intent = getIntent();
         final int position = intent.getIntExtra("position",0);
         messageRoomID = RoomAdapter.urls.get(position);
-
-
+        ChatQuestion=RoomAdapter.items.get(position);
+        Question=findViewById(R.id.ChatQuestion);
+        Question.setText(ChatQuestion);
 
         IntializeControllers();
 
