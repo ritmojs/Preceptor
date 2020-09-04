@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "255770303450",
+    "firebase_url": "https://virtual-retical.firebaseio.com",
+    "project_id": "virtual-retical",
+    "storage_bucket": "virtual-retical.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255770303450:android:e6e97f4c1c11c49fcc7ee3",
+        "android_client_info": {
+          "package_name": "com.retical.virtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255770303450-dmkpusp6sava28vgeipig83cn010fqr7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.retical.virtual",
+            "certificate_hash": "b4d879b519249d0f0bb6178e0d1b8fdc099e0056"
+          }
+        },
+        {
+          "client_id": "255770303450-q8m9i9ld9r4jf8c3cre64of201q8mg8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbqUTn4R6KWzIltUYQXA_PeAeJN8OW7rU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255770303450-q8m9i9ld9r4jf8c3cre64of201q8mg8s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

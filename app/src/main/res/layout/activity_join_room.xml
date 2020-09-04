@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JoinRoom">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:text="Join Room"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/heading"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/enter_peuID"
+
+
+        android:layout_below="@+id/heading"
+        android:hint="Enter RoomID"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+
+
+        android:inputType="textEmailAddress"
+
+        />
+    <Button
+        android:textColor="@color/colorPrimary"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enter_peuID"
+        android:text="Join"
+        android:id="@+id/search"
+        android:textAllCaps="false"
+        android:padding="14dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:textSize="24sp"
+
+       />
+
+</RelativeLayout>

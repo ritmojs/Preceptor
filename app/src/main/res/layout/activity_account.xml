@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountActivity">
+
+
+  <Button
+      android:id="@+id/StudentBtn"
+      android:layout_width="match_parent"
+      android:layout_margin="50dp"
+      android:layout_height="wrap_content"
+      android:text="Student"
+      android:layout_centerInParent="true"
+      />
+    <Button
+        android:id="@+id/TeacherBtn"
+        android:layout_width="match_parent"
+        android:layout_margin="50dp"
+        android:layout_height="wrap_content"
+        android:text="Teacher"
+        android:layout_below="@+id/StudentBtn"
+        android:layout_centerInParent="true"
+        />
+
+
+
+</RelativeLayout>
