@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,7 +27,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     private List<Messages> userMessagesList;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
-
+    public String EduStarValue;
 
     public MessageAdapter (List<Messages> userMessagesList)
     {
@@ -37,7 +38,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     public class MessageViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView senderMessageText, receiverMessageText,receiverUserName;
+        public TextView senderMessageText, receiverMessageText,receiverUserName,EduStar;
+
         public CircleImageView receiverProfileImage;
         public ImageView messageSenderPicture, messageReceiverPicture;
 
@@ -46,7 +48,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         {
             super(itemView);
             receiverUserName=itemView.findViewById(R.id.UserName);
-
+            EduStar=itemView.findViewById(R.id.EduStar);
             senderMessageText = (TextView) itemView.findViewById(R.id.sender_messsage_text);
             receiverMessageText = (TextView) itemView.findViewById(R.id.receiver_message_text);
             receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.message_profile_image);
@@ -79,17 +81,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         Messages messages = userMessagesList.get(i);
 
         String fromUserID = messages.getFrom();
+
         String fromMessageType = messages.getType();
 
         usersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(fromUserID);
+
 
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot)
             {
-                if (dataSnapshot.hasChild("image"))
+                if (dataSnapshot.hasChild("EduStar"))
                 {
-                    String receiverImage = dataSnapshot.child("image").getValue().toString();
+                     EduStarValue = dataSnapshot.child("EduStar").getValue().toString();
 
                     //Picasso.get().load(receiverImage).placeholder(R.drawable.profile_image).into(messageViewHolder.receiverProfileImage);
                 }
@@ -104,6 +108,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
 
         messageViewHolder.receiverUserName.setVisibility(View.GONE);
+        messageViewHolder.EduStar.setVisibility(View.GONE);
         messageViewHolder.receiverMessageText.setVisibility(View.GONE);
         messageViewHolder.receiverProfileImage.setVisibility(View.GONE);
         messageViewHolder.senderMessageText.setVisibility(View.GONE);
@@ -127,6 +132,18 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 messageViewHolder.receiverMessageText.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverUserName.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverUserName.setTextColor(Color.WHITE);
+                messageViewHolder.EduStar.setVisibility(View.VISIBLE);
+                if(EduStarValue!=null)
+                {
+                    messageViewHolder.EduStar.setText("⭐"+EduStarValue);
+                }
+                else
+                {
+                    messageViewHolder.EduStar.setText("⭐ 0");
+                    messageViewHolder.EduStar.setTextColor(Color.WHITE);
+                }
+
+
 
                 messageViewHolder.receiverUserName.setText(mAuth.getCurrentUser().getDisplayName());
                 messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.receiver_messages_layout);
