@@ -47,6 +47,7 @@ android:layout_below="@+id/greatings"
 
                     />
                 <Button
+                    android:textStyle="bold"
                     android:layout_width="150dp"
                     android:layout_below="@+id/UserName"
                     android:layout_marginLeft="20dp"

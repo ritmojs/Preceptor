@@ -54,9 +54,8 @@ public class JoinRoom extends AppCompatActivity {
                 if (dataSnapshot.child(text).exists()) {
                     RoomName=dataSnapshot.child(text).getValue().toString();
                     RootRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Room").child("Joined").child(text).setValue(RoomName);
-
-
-
+                    Intent intent=new Intent(JoinRoom.this,Room.class);
+                    startActivity(intent);
 
                 }
                 else

@@ -77,6 +77,7 @@ public class RegisterStudent extends AppCompatActivity implements View.OnClickLi
                     mRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Type").setValue("Student");
                     mRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Password").setValue(pass.getText().toString());
                     mRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Email").setValue(user.getText().toString());
+                    mRef.child("User").child(mAuth.getCurrentUser().getUid()).child("EduStar").setValue(0.0);
                 //    mRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Room").child("Joined").child("").setValue(user.getText().toString());
 
 

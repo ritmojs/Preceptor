@@ -1,5 +1,7 @@
 package com.retical.virtual;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,17 +28,21 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 {
     private List<Messages> userMessagesList;
     private FirebaseAuth mAuth;
-    private DatabaseReference usersRef;
+    private DatabaseReference usersRef,EduRef;
     public String EduStarValue;
-
-    public MessageAdapter (List<Messages> userMessagesList)
-    {
+    private Context context;
+    public String messageRoomId;
+    ItemClickListener itemClickListener;
+    public MessageAdapter (List<Messages> userMessagesList,String messageRoomID)
+    {this.messageRoomId=messageRoomID;
         this.userMessagesList = userMessagesList;
+        this.itemClickListener = itemClickListener;
     }
 
 
 
-    public class MessageViewHolder extends RecyclerView.ViewHolder
+
+    public class MessageViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener
     {
         public TextView senderMessageText, receiverMessageText,receiverUserName,EduStar;
 
@@ -54,6 +60,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
             receiverProfileImage = (CircleImageView) itemView.findViewById(R.id.message_profile_image);
             messageReceiverPicture = itemView.findViewById(R.id.message_receiver_image_view);
             messageSenderPicture = itemView.findViewById(R.id.message_sender_image_view);
+        }
+
+        @Override
+        public void onClick(View view) {
+
         }
     }
 
@@ -78,9 +89,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public void onBindViewHolder(@NonNull final MessageViewHolder messageViewHolder, int i)
     {
         String messageSenderId = mAuth.getCurrentUser().getUid();
-        Messages messages = userMessagesList.get(i);
+        final Messages messages = userMessagesList.get(i);
 
-        String fromUserID = messages.getFrom();
+        final String fromUserID = messages.getFrom();
 
         String fromMessageType = messages.getType();
 
@@ -133,15 +144,25 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 messageViewHolder.receiverUserName.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverUserName.setTextColor(Color.WHITE);
                 messageViewHolder.EduStar.setVisibility(View.VISIBLE);
-                if(EduStarValue!=null)
-                {
-                    messageViewHolder.EduStar.setText("⭐"+EduStarValue);
-                }
-                else
-                {
-                    messageViewHolder.EduStar.setText("⭐ 0");
-                    messageViewHolder.EduStar.setTextColor(Color.WHITE);
-                }
+          usersRef.addValueEventListener(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                  if(dataSnapshot.hasChild("EduStar"))
+                  {messageViewHolder.EduStar.setText(dataSnapshot.child("EduStar").getValue().toString());
+
+                  }
+                  else
+                  {messageViewHolder.EduStar.setText("0");
+
+                  }
+              }
+
+              @Override
+              public void onCancelled(@NonNull DatabaseError databaseError) {
+
+              }
+          });
+
 
 
 
@@ -161,6 +182,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     {
         return userMessagesList.size();
     }
+
+
+
+
+
 
 }
 

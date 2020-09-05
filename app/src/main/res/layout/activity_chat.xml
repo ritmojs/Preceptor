@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/bg"
     tools:context=".Chat">
 <TextView
     android:id="@+id/ChatQuestion"
@@ -48,7 +48,7 @@
             android:id="@+id/input_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="type message here..."
+            android:hint="Type here..."
             android:padding="15dp"
             android:maxLines="5"
 

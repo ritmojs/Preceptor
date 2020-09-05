@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/enter_peuID"
-
+android:padding="10dp"
 android:background="@drawable/input"
         android:layout_below="@+id/heading"
         android:hint="Enter RoomID"

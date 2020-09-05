@@ -57,7 +57,6 @@ public class Chat extends AppCompatActivity {
     private MessageAdapter messageAdapter;
     private RecyclerView userMessagesList;
 
-
     private String saveCurrentTime, saveCurrentDate;
 
     @Override
@@ -104,11 +103,15 @@ public class Chat extends AppCompatActivity {
 
         MessageInputText = (EditText) findViewById(R.id.input_message);
 
-        messageAdapter = new MessageAdapter(messagesList);
+
+        messageAdapter = new MessageAdapter(messagesList,messageRoomID);
         userMessagesList = (RecyclerView) findViewById(R.id.private_messages_list_of_users);
         linearLayoutManager = new LinearLayoutManager(this);
         userMessagesList.setLayoutManager(linearLayoutManager);
         userMessagesList.setAdapter(messageAdapter);
+
+
+
 
 
         Calendar calendar = Calendar.getInstance();
