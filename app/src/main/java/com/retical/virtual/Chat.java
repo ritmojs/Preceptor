@@ -41,7 +41,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Chat extends AppCompatActivity {
 
     private String messageRoomID, messageSenderID,ChatQuestion;
-
+ Double Edud;
+ String Edu;
     private TextView Question;
     private CircleImageView userImage;
 
@@ -181,6 +182,23 @@ public class Chat extends AppCompatActivity {
         }
         else
         {
+            RootRef.child("User").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.hasChild("EduStar"))
+                    {  Edu=dataSnapshot.child("EduStar").getValue().toString();
+
+                    }
+
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
             String messageSenderRef = "Messages/" ;
          //   String messageReceiverRef = "Messages/" + messageRoomID+ "/" + messageSenderID;
 
@@ -203,6 +221,8 @@ public class Chat extends AppCompatActivity {
             messageBodyDetails.put(messageSenderRef + "/" + messagePushID, messageTextBody);
            // messageBodyDetails.put( messageReceiverRef + "/" + messagePushID, messageTextBody);
 
+
+
             RootRef.child("Room").child(messageRoomID).updateChildren(messageBodyDetails).addOnCompleteListener(new OnCompleteListener() {
                 @Override
                 public void onComplete(@NonNull Task task)
@@ -211,12 +231,16 @@ public class Chat extends AppCompatActivity {
                     {
                         MessageInputText.setText("");
 
+                        Toast.makeText(Chat.this, Edu, Toast.LENGTH_SHORT).show();
+                        Edud=Double.valueOf(Edu)+0.05;
+                        RootRef.child("User").child(mAuth.getCurrentUser().getUid()).child("EduStar").setValue(Edud);
 
                     }
                     else
                     {
 
                     }
+
 
                 }
             });

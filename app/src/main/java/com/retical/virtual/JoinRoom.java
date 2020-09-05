@@ -23,7 +23,7 @@ public class JoinRoom extends AppCompatActivity {
     private DatabaseReference RootRef;
     String text;
     private FirebaseAuth mAuth;
-    private  String RoomName;
+    private  String RoomName,EduStar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,7 @@ public class JoinRoom extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 text = RoomID.getText().toString();
+
                 verifyRoomExistance();
 
 
@@ -54,6 +55,7 @@ public class JoinRoom extends AppCompatActivity {
                 if (dataSnapshot.child(text).exists()) {
                     RoomName=dataSnapshot.child(text).getValue().toString();
                     RootRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Room").child("Joined").child(text).setValue(RoomName);
+                    RootRef.child("Room").child(text).child("Members").child(mAuth.getCurrentUser().getDisplayName()).setValue(0);
                     Intent intent=new Intent(JoinRoom.this,Room.class);
                     startActivity(intent);
 
