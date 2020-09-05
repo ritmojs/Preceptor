@@ -95,7 +95,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
         String fromMessageType = messages.getType();
 
-        usersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(fromUserID);
+        usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(fromUserID);
 
 
         usersRef.addValueEventListener(new ValueEventListener() {
@@ -148,8 +148,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
               @Override
               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                   if(dataSnapshot.hasChild("EduStar"))
-                  {messageViewHolder.EduStar.setText(dataSnapshot.child("EduStar").getValue().toString());
-
+                  {messageViewHolder.EduStar.setText("⭐"+dataSnapshot.child("EduStar").getValue().toString());
+                      messageViewHolder.receiverUserName.setText(dataSnapshot.child("Name").getValue().toString());
                   }
                   else
                   {messageViewHolder.EduStar.setText("0");
@@ -166,7 +166,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
 
 
-                messageViewHolder.receiverUserName.setText(mAuth.getCurrentUser().getDisplayName());
+
                 messageViewHolder.receiverMessageText.setBackgroundResource(R.drawable.receiver_messages_layout);
                 messageViewHolder.receiverMessageText.setTextColor(Color.BLACK);
                 messageViewHolder.receiverMessageText.setText(messages.getMessage() + "\n \n" + messages.getTime() + " - " + messages.getDate());
