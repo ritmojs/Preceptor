@@ -96,7 +96,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         String fromMessageType = messages.getType();
 
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(fromUserID);
-EduRef=FirebaseDatabase.getInstance().getReference().child("Room").child(messageSenderId).child("Members").child(fromUserID);
+
 
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -144,19 +144,20 @@ EduRef=FirebaseDatabase.getInstance().getReference().child("Room").child(message
                 messageViewHolder.receiverUserName.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverUserName.setTextColor(Color.WHITE);
                 messageViewHolder.EduStar.setVisibility(View.VISIBLE);
-          EduRef.addValueEventListener(new ValueEventListener() {
-              @Override
-              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                EduRef=FirebaseDatabase.getInstance().getReference().child("Room").child(messageRoomId).child("Members").child(fromUserID);
+                EduRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                  messageViewHolder.EduStar.setText("⭐"+dataSnapshot.getValue().toString());
+                        messageViewHolder.EduStar.setText("⭐"+dataSnapshot.getValue().toString());
 
-              }
+                    }
 
-              @Override
-              public void onCancelled(@NonNull DatabaseError databaseError) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-              }
-          });
+                    }
+                });
 
           usersRef.addValueEventListener(new ValueEventListener() {
               @Override
