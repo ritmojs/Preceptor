@@ -5,6 +5,7 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ScrollView
+        android:background="@drawable/homebg"
 
         android:layout_width="match_parent"
         android:layout_height="match_parent">

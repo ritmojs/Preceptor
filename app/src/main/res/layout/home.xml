@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/homebg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/greatings"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Evening !"
+
+                    android:textAlignment="textStart"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/head"
+                    android:fontFamily="monospace"
+
+                   />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/UserName"
+android:layout_below="@+id/greatings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rhythm"
+
+                    android:textAlignment="textStart"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30dp"
+
+                    android:textColor="@color/head"
+                    android:fontFamily="monospace"
+
+                    />
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_below="@+id/UserName"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/profilebtn"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="View Profile"
+                    android:id="@+id/profile"
+                    android:layout_height="wrap_content"
+                    />
+            </RelativeLayout>
+            <GridLayout
+                android:rowCount="3"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnOrderPreserved="false">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="6dp"
+
+
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/notes"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/your"/>
+                        <TextView
+                            android:id="@+id/Room"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your Room"
+                            android:fontFamily="@font/montserrat"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="6dp"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/syllabus"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/joinroom"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Join Room"
+                            android:id="@+id/JoinRoom"
+                            android:fontFamily="@font/montserrat"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="6dp"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/srmerp"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/notification"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/notification"
+                            android:text="Notification"
+                            android:fontFamily="@font/montserrat"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    app:cardElevation="6dp"
+                    app:cardCornerRadius="12dp"
+                    android:layout_margin="12dp">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/srmresults"
+                            android:layout_width="100dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/createroom"/>
+                        <TextView
+                            android:id="@+id/CreateRoom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Create Room"
+                            android:fontFamily="@font/montserrat"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </GridLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

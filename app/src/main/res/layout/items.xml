@@ -28,6 +28,7 @@
             android:layout_marginBottom="50dp"
             android:paddingLeft="10dp"
             android:text="Text View"
+            android:fontFamily="@font/montserrat"
            android:layout_centerInParent="true"
             android:textColor="@android:color/black"
             android:textStyle="bold" />

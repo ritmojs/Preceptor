@@ -206,13 +206,15 @@ public class Chat extends AppCompatActivity {
                 {
                     if (task.isSuccessful())
                     {
-                        Toast.makeText(Chat.this, "Message Sent Successfully...", Toast.LENGTH_SHORT).show();
+                        MessageInputText.setText("");
+
+
                     }
                     else
                     {
-                        Toast.makeText(Chat.this, "Error", Toast.LENGTH_SHORT).show();
+
                     }
-                    MessageInputText.setText("");
+
                 }
             });
         }
