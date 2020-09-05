@@ -41,8 +41,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Chat extends AppCompatActivity {
 
     private String messageRoomID, messageSenderID,ChatQuestion;
- Double Edud;
- String Edu;
+ Double Edud,EdudRoom;
+ String Edu,EduRoom;
     private TextView Question;
     private CircleImageView userImage;
 
@@ -199,6 +199,27 @@ public class Chat extends AppCompatActivity {
 
                 }
             });
+
+
+            RootRef.child("Room").child(messageRoomID).child("Members").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                  EduRoom=dataSnapshot.getValue().toString();
+
+
+
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+
             String messageSenderRef = "Messages/" ;
          //   String messageReceiverRef = "Messages/" + messageRoomID+ "/" + messageSenderID;
 
@@ -230,9 +251,10 @@ public class Chat extends AppCompatActivity {
                     if (task.isSuccessful())
                     {
                         MessageInputText.setText("");
+                        Edud=Double.valueOf(Edu)+0.5;
+                        EdudRoom=Double.valueOf(EduRoom)+0.5;
 
-                        Toast.makeText(Chat.this, Edu, Toast.LENGTH_SHORT).show();
-                        Edud=Double.valueOf(Edu)+0.05;
+                        RootRef.child("Room").child(messageRoomID).child("Members").child(mAuth.getCurrentUser().getUid()).setValue(EdudRoom);
                         RootRef.child("User").child(mAuth.getCurrentUser().getUid()).child("EduStar").setValue(Edud);
 
                     }

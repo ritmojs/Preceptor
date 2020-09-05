@@ -96,7 +96,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         String fromMessageType = messages.getType();
 
         usersRef = FirebaseDatabase.getInstance().getReference().child("User").child(fromUserID);
-
+EduRef=FirebaseDatabase.getInstance().getReference().child("Room").child(messageSenderId).child("Members").child(fromUserID);
 
         usersRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -144,17 +144,24 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
                 messageViewHolder.receiverUserName.setVisibility(View.VISIBLE);
                 messageViewHolder.receiverUserName.setTextColor(Color.WHITE);
                 messageViewHolder.EduStar.setVisibility(View.VISIBLE);
+          EduRef.addValueEventListener(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                  messageViewHolder.EduStar.setText("⭐"+dataSnapshot.getValue().toString());
+
+              }
+
+              @Override
+              public void onCancelled(@NonNull DatabaseError databaseError) {
+
+              }
+          });
+
           usersRef.addValueEventListener(new ValueEventListener() {
               @Override
               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                  if(dataSnapshot.hasChild("EduStar"))
-                  {messageViewHolder.EduStar.setText("⭐"+dataSnapshot.child("EduStar").getValue().toString());
-                      messageViewHolder.receiverUserName.setText(dataSnapshot.child("Name").getValue().toString());
-                  }
-                  else
-                  {messageViewHolder.EduStar.setText("0");
-
-                  }
+                  messageViewHolder.receiverUserName.setText(dataSnapshot.child("Name").getValue().toString());
               }
 
               @Override

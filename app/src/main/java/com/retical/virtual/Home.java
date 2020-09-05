@@ -7,28 +7,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class Home extends AppCompatActivity  {
-   private TextView mRoom,mJoin,mCreate;
+   private TextView mRoom,mJoin,mCreate,mName;
    private Button  mprofile;
+   FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-
+mAuth=FirebaseAuth.getInstance();
         //Initialization
         mRoom=findViewById(R.id.Room);
         mJoin=findViewById(R.id.JoinRoom);
         mCreate=findViewById(R.id.CreateRoom);
         mprofile=findViewById(R.id.profile);
+        mName=findViewById(R.id.UserName);
         //Initialization ends
 
 
-
+mName.setText(mAuth.getCurrentUser().getDisplayName());
 
         //listner code starts
         mRoom.setOnClickListener(new View.OnClickListener() {

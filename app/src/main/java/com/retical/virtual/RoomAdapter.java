@@ -60,16 +60,18 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.ViewHolder>  {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.Question.setText(items.get(position));
+        holder.roomid.setText(urls.get(position));
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
-        TextView Question;
+        TextView Question,roomid;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             Question=itemView.findViewById(R.id.RoomName);
+            roomid=itemView.findViewById(R.id.roomid);
 
             itemView.setOnClickListener(this);
         }

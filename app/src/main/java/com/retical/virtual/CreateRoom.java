@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +29,7 @@ public class CreateRoom extends AppCompatActivity {
     private Button mbtn;
     private DatabaseReference RootRef;
     String text;
+    FirebaseAuth mAuth;
 String mRoomID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ String mRoomID;
         RoomName=findViewById(R.id.RoomName);
         RootRef = FirebaseDatabase.getInstance().getReference();
         mbtn = findViewById(R.id.Create);
-
+mAuth=FirebaseAuth.getInstance();
         Random r = new Random();
         int n = 100000 + r.nextInt(900000);
         mRoomID = String.valueOf(n);
@@ -46,7 +48,9 @@ String mRoomID;
             @Override
             public void onClick(View view) {
                 text = RoomName.getText().toString();
-                RootRef.child("Room").child(mRoomID).setValue(text);
+                RootRef.child("Room").child(mRoomID).child("RoomName").setValue(text);
+                RootRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Room").child("Joined").child(mRoomID).setValue(text);
+                RootRef.child("Room").child(mRoomID).child("Members").child(mAuth.getCurrentUser().getUid()).setValue(0);
                 RoomID.setVisibility(View.VISIBLE);
                 RoomID.setText(mRoomID);
                 Intent intent=new Intent(CreateRoom.this,Room.class);
