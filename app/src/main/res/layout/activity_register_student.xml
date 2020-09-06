@@ -57,7 +57,8 @@
             android:id="@+id/name"
             android:layout_below="@id/enter"
             android:layout_width="match_parent"
-
+android:padding="10dp"
+            android:textColor="@color/head"
             android:layout_margin="10dp"
             android:layout_height="wrap_content"
 
@@ -69,7 +70,8 @@
         <EditText
             android:id="@+id/memail"
             android:background="@drawable/input"
-
+android:padding="10dp"
+            android:textColor="@color/head"
             android:layout_below="@id/name"
             android:layout_width="match_parent"
             android:layout_margin="10dp"
@@ -89,6 +91,8 @@ android:fontFamily="@font/montserrat"
             android:layout_height="wrap_content"
             android:background="@drawable/input"
 android:fontFamily="@font/montserrat"
+            android:padding="10dp"
+            android:textColor="@color/head"
             android:hint="Password"
             android:inputType="textPassword" />
         <Button

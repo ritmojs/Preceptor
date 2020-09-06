@@ -65,8 +65,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
             android:background="@drawable/input"
-
+android:textColor="@color/head"
 android:fontFamily="@font/montserrat"
+            android:padding="10dp"
             android:hint="Email"
             android:inputType="textEmailAddress" />
 
@@ -80,6 +81,8 @@ android:fontFamily="@font/montserrat"
             android:layout_height="wrap_content"
 android:background="@drawable/input"
             android:hint="Password"
+            android:padding="10dp"
+            android:textColor="@color/head"
             android:fontFamily="@font/montserrat"
             android:inputType="textPassword" />
         <Button

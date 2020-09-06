@@ -58,11 +58,13 @@
         android:id="@+id/RoomName"
 android:fontFamily="@font/montserrat"
 android:background="@drawable/input"
+        android:padding="10dp"
         android:layout_below="@+id/enter"
         android:hint="Enter Room Name"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="17dp"
         android:layout_marginRight="17dp"
+        android:textColor="@color/head"
 
 
         android:inputType="textEmailAddress"
@@ -83,7 +85,8 @@ android:fontFamily="@font/montserrat"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="17dp"
         android:layout_marginRight="17dp"
-
+        android:padding="10dp"
+        android:textColor="@color/head"
 
         android:inputType="textEmailAddress"
 

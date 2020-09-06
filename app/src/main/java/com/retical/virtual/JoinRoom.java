@@ -49,6 +49,7 @@ public class JoinRoom extends AppCompatActivity {
 
     private void verifyRoomExistance() {
 
+
         RootRef.child("Room").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -56,8 +57,8 @@ public class JoinRoom extends AppCompatActivity {
                     RoomName=dataSnapshot.child(text).child("RoomName").getValue().toString();
                     RootRef.child("User").child(mAuth.getCurrentUser().getUid()).child("Room").child("Joined").child(text).setValue(RoomName);
                     RootRef.child("Room").child(text).child("Members").child(mAuth.getCurrentUser().getUid()).setValue(0);
-                    Intent intent=new Intent(JoinRoom.this,Room.class);
-                    startActivity(intent);
+
+                    finish();
 
                 }
                 else
@@ -66,6 +67,7 @@ public class JoinRoom extends AppCompatActivity {
 
                 }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

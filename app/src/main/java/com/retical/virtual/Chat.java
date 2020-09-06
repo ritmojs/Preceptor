@@ -204,7 +204,7 @@ public class Chat extends AppCompatActivity {
             RootRef.child("Room").child(messageRoomID).child("Members").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                  EduRoom=dataSnapshot.getValue().toString();
+                    EduRoom=dataSnapshot.getValue().toString();
 
 
 
