@@ -54,7 +54,7 @@ Link : https://drive.google.com/file/d/1bLe8sqUqQDa0R9zs_sFfCmmlhdXDkzo0/view?us
 ### Team Butcher Bytes
 
 - 🧒🏻 Rhythm Verma [github](https://github.com/ritmojs)
-- 👩🏻 Gargi [github] (https://github.com/gargijs)
+- 👩🏻 Gargi [github](https://github.com/gargijs)
 
 # ThankYou
 
