@@ -42,6 +42,8 @@ Link : https://drive.google.com/file/d/1bLe8sqUqQDa0R9zs_sFfCmmlhdXDkzo0/view?us
 - Step-5:Students will be rated by their answers which will be reflected on their profile.
   For More Detailed Steps Visit :https://youtu.be/MxHKEbrraaw
 
+  [![IMAGE ALT TEXT](http://img.youtube.com/vi/MxHKEbrraaw/0.jpg)](http://www.youtube.com/watch?v=MxHKEbrraaw "Preceptor || Eduthon_IIIT_Project")
+
 ## Developers
 
 ### Team Butcher Bytes
