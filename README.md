@@ -40,10 +40,14 @@ Link : https://drive.google.com/file/d/1bLe8sqUqQDa0R9zs_sFfCmmlhdXDkzo0/view?us
 - Step-3:If you are a teacher then create room and if a student then join the room.
 - Step-4: Now the teachers will post the query and students will answer accordingly.
 - Step-5:Students will be rated by their answers which will be reflected on their profile.
-  For More Detailed Steps Visit :https://youtu.be/MxHKEbrraaw
 
-  [![IMAGE ALT TEXT](http://img.youtube.com/vi/MxHKEbrraaw/0.jpg)](http://www.youtube.com/watch?v=MxHKEbrraaw "Preceptor || Eduthon_IIIT_Project")
+# For More Detailed Steps Visit :[My Youtube Channel](https://youtu.be/MxHKEbrraaw)
 
+<p align="center">
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/MxHKEbrraaw/0.jpg)](http://www.youtube.com/watch?v=MxHKEbrraaw "Preceptor || Eduthon_IIIT_Project")
+
+</p>
 ## Developers
 
 ### Team Butcher Bytes
